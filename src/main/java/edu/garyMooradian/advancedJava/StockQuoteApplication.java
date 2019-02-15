@@ -24,6 +24,11 @@ public class StockQuoteApplication {
 		
 		String stockSymbol = args[0];
 		
+		/*
+		 * Getting BasicStockService object from StockServiceFactory
+		 */
+		StockService basicStockService = new StockServiceFactory().getStockService();
+		
 		//Create Calendar object for start date
 		Calendar calendarStartDate = Calendar.getInstance();
 		//parse the start date String to a Date object and set Calendar object with that Date object
@@ -36,8 +41,8 @@ public class StockQuoteApplication {
 
 		
 		//Create a BasicStockService object and call the getQuote method
-		List<StockQuote> listOfQuotes = new BasicStockService().getQuoteHistory(stockSymbol, calendarStartDate, calendarEndDate);
-		
+		List<StockQuote> listOfQuotes = basicStockService.getQuoteHistory(stockSymbol, calendarStartDate, calendarEndDate);
+
 		//Print the date recorded for each day, for the stock
 		for(StockQuote stockQuote : listOfQuotes) {
 			System.out.println(stockQuote.getDateRecorded());
