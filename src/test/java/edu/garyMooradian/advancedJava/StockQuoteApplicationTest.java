@@ -27,7 +27,7 @@ public class StockQuoteApplicationTest {
 			 * will always be true and the message "Received an unexpected Exception"
 			 * will be generated
 			 */
-			assertEquals("Received an unexpected Exception", e.getMessage(), e.getMessage());
+			assertTrue("Received an unexpected Exception",true);
 		}
 	}
 	
